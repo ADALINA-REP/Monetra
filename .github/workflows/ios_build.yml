@@ -50,7 +50,7 @@ jobs:
           printf "%s\n" "-----END PRIVATE KEY-----" >> "$TARGET_KEY"
           cp "$TARGET_KEY" "$HOME/private_keys/AuthKey_9HC3ZFHYQ7.p8"
 
-          python3 -m pip install pyjwt cryptography requests --quiet || true
+          python3 -m pip install --break-system-packages pyjwt cryptography requests --quiet || true
           python3 - << 'EOF'
           import time, jwt, requests
           key_path = "$HOME/.appstoreconnect/private_keys/AuthKey_9HC3ZFHYQ7.p8"
