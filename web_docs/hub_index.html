@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal & Support Portal - ADALINA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --emerald: #10b981;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px 16px;
+    }
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 680px;
+      width: 100%;
+      padding: 40px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+    }
+    h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+    p.lead { color: var(--text-muted); font-size: 15px; margin-bottom: 28px; }
+    .app-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background: rgba(255,255,255,0.02);
+    }
+    .app-title { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+    .app-subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+    .links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .link-btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .link-primary { background-color: var(--primary); color: #fff; }
+    .link-primary:hover { background-color: #1d4ed8; }
+    .link-emerald { background-color: #059669; color: #fff; }
+    .link-emerald:hover { background-color: #047857; }
+    .link-secondary { background: rgba(255,255,255,0.08); color: var(--text); }
+    .link-secondary:hover { background: rgba(255,255,255,0.15); }
+    footer { text-align: center; margin-top: 32px; color: var(--text-muted); font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Legal, Privacy & Support Hub</h1>
+    <p class="lead">Official documentation and user support resources for mobile applications.</p>
+
+    <div class="app-box">
+      <div class="app-title">⚡ Monetra: Budget & Expenses</div>
+      <div class="app-subtitle">com.monetra.budget.expense.tracker (Android)</div>
+      <div class="links">
+        <a href="monetra/index.html" class="link-btn link-emerald">Website & Overview</a>
+        <a href="monetra/privacy.html" class="link-btn link-emerald">Privacy Policy</a>
+        <a href="monetra/support.html" class="link-btn link-secondary">Support & FAQ</a>
+      </div>
+    </div>
+
+    <div class="app-box">
+      <div class="app-title">📱 FileEase: Compress & PDF Tools</div>
+      <div class="app-subtitle">com.fileease.pdf.image.toolkit (iOS & Android)</div>
+      <div class="links">
+        <a href="fileease/privacy.html" class="link-btn link-primary">Privacy Policy</a>
+        <a href="fileease/support.html" class="link-btn link-secondary">Support & FAQ</a>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2026 ADALINA. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>

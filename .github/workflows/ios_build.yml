@@ -1,0 +1,110 @@
+name: iOS Build & Release
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-ios:
+    name: Build & Deploy iOS to App Store Connect
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Java Development Kit
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Disable Swift Package Manager in Flutter
+        run: flutter config --no-enable-swift-package-manager
+
+      - name: Precache iOS Artifacts
+        run: flutter precache --ios
+
+      - name: Install Dependencies
+        run: |
+          flutter pub get
+          flutter build ios --config-only --release --no-codesign
+
+      - name: Write App Store Connect API Key File
+        run: |
+          mkdir -p "$HOME/.appstoreconnect/private_keys"
+          mkdir -p "$HOME/private_keys"
+          TARGET_KEY="$HOME/.appstoreconnect/private_keys/AuthKey_9HC3ZFHYQ7.p8"
+          printf "%s\n" "-----BEGIN PRIVATE KEY-----" > "$TARGET_KEY"
+          printf "%s\n" "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQggirxemIOJ0dlsLBJ" >> "$TARGET_KEY"
+          printf "%s\n" "9jbKPEcTJWI5i4OqpR+6Hv0JJ6KgCgYIKoZIzj0DAQehRANCAARACJZYyIKA/J4A" >> "$TARGET_KEY"
+          printf "%s\n" "E0oWMjQECeR0pfOndYymen5P8Q7ba7o4l+IdZzDSNjbZyQ0I6oVlZi54EbeUkz9m" >> "$TARGET_KEY"
+          printf "%s\n" "xMlFxhoE" >> "$TARGET_KEY"
+          printf "%s\n" "-----END PRIVATE KEY-----" >> "$TARGET_KEY"
+          cp "$TARGET_KEY" "$HOME/private_keys/AuthKey_9HC3ZFHYQ7.p8"
+
+      - name: Create ExportOptions.plist
+        run: |
+          cat <<EOF > ios/ExportOptions.plist
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+              <key>destination</key>
+              <string>export</string>
+              <key>method</key>
+              <string>app-store-connect</string>
+              <key>teamID</key>
+              <string>JTVCP8PGV8</string>
+              <key>uploadSymbols</key>
+              <true/>
+              <key>manageAppVersionAndBuildNumber</key>
+              <true/>
+              <key>signingStyle</key>
+              <string>automatic</string>
+          </dict>
+          </plist>
+          EOF
+
+      - name: Build Unsigned IPA Archive via Flutter
+        run: |
+          BUILD_NUM=$((10 + GITHUB_RUN_NUMBER))
+          echo "Building iOS archive with dynamic build number: $BUILD_NUM"
+          flutter build ipa --release --no-codesign --no-tree-shake-icons --build-number=$BUILD_NUM
+
+      - name: Export Signed IPA via App Store Connect API Key
+        run: |
+          KEY_PATH="$HOME/.appstoreconnect/private_keys/AuthKey_9HC3ZFHYQ7.p8"
+          ARCHIVE_PATH=$(find build/ios -name "*.xcarchive" -type d 2>/dev/null | head -n 1)
+          if [ -z "$ARCHIVE_PATH" ]; then
+            ARCHIVE_PATH="build/ios/archive/Runner.xcarchive"
+          fi
+          echo "Found xcarchive at: $ARCHIVE_PATH"
+
+          mkdir -p build/ios/ipa
+
+          xcodebuild -exportArchive \
+            -archivePath "$ARCHIVE_PATH" \
+            -exportOptionsPlist ios/ExportOptions.plist \
+            -exportPath build/ios/ipa \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$KEY_PATH" \
+            -authenticationKeyID "9HC3ZFHYQ7" \
+            -authenticationKeyIssuerID "b4575c22-8a31-4f97-bed4-889e3c21a7b5"
+
+      - name: Upload Signed IPA to App Store Connect / TestFlight
+        run: |
+          IPA_FILE=$(find build/ios/ipa -name "*.ipa" 2>/dev/null | head -n 1)
+          if [ -z "$IPA_FILE" ]; then
+            IPA_FILE=$(find build/ios -name "*.ipa" 2>/dev/null | head -n 1)
+          fi
+          echo "Uploading $IPA_FILE to App Store Connect..."
+          xcrun altool --upload-app -f "$IPA_FILE" -t ios --apiKey "9HC3ZFHYQ7" --apiIssuer "b4575c22-8a31-4f97-bed4-889e3c21a7b5" --verbose
+

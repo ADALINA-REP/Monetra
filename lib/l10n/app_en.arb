@@ -1,0 +1,335 @@
+{
+  "@@locale": "en",
+  "appName": "Monetra",
+  "appTagline": "Your money. Your vision.",
+  "appAlternativeTagline": "See your money differently.",
+
+  "navDashboard": "Dashboard",
+  "navTransactions": "Activity",
+  "navBudgets": "Budgets",
+  "navAnalytics": "Analytics",
+  "navGoals": "Goals",
+
+  "safeToSpendToday": "Safe to Spend Today",
+  "dailyAllowanceSubtitle": "Calculated daily discretionary allowance",
+  "daysLeftInCycle": "{count}d left in cycle",
+  "@daysLeftInCycle": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "perDay": "/ today",
+  "safeSpendDescription": "Spend up to this amount today without impacting your bills or savings goals.",
+  "safeSpendExceededDescription": "Budget limit reached. Reserve remaining funds for committed bills.",
+  "remainingBudget": "Remaining Budget",
+  "committedBills": "Committed Bills",
+  "projectedEnd": "Projected End",
+
+  "monthlyIncome": "Monthly Income",
+  "monthlyExpenses": "Monthly Expenses",
+  "monthlyBudget": "Monthly Budget",
+  "monthlyBudgetUpper": "MONTHLY BUDGET",
+  "onTrack": "On Track",
+  "attention": "Attention",
+  "limitExceeded": "Limit Exceeded",
+  "consumedPercent": "{percent}% consumed",
+  "@consumedPercent": {
+    "placeholders": {
+      "percent": { "type": "int" }
+    }
+  },
+  "amountRemaining": "{amount} remaining",
+  "@amountRemaining": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "amountOverLimit": "{amount} over limit",
+  "@amountOverLimit": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+
+  "smartInsights": "SMART INSIGHTS",
+  "insightDailyTargetTitle": "Daily Spending Target",
+  "insightDailyTargetMsg": "Staying within {amount} today keeps your monthly budget safely on track for the remaining {days} days.",
+  "@insightDailyTargetMsg": {
+    "placeholders": {
+      "amount": { "type": "String" },
+      "days": { "type": "int" }
+    }
+  },
+  "insightBudgetAlertTitle": "Budget Alert",
+  "insightBudgetAlertMsg": "You have consumed over 90% of your monthly budget. Discretionary spending should be paused to protect essentials.",
+  "insightRecurringTitle": "Recurring Commitments",
+  "insightRecurringMsg": "You have active subscriptions totaling {amount}/month. Auditing unused services could save you money.",
+  "@insightRecurringMsg": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "insightNetSurplusTitle": "Net Surplus",
+  "insightNetSurplusMsg": "You are currently saving {amount} this month. Consider transferring excess funds into your savings goals.",
+  "@insightNetSurplusMsg": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "insightSurgeTitle": "Spending Surge",
+  "insightSurgeMsg": "{category} accounts for {percent}% of your monthly expenses.",
+  "@insightSurgeMsg": {
+    "placeholders": {
+      "category": { "type": "String" },
+      "percent": { "type": "int" }
+    }
+  },
+
+  "recentActivityUpper": "RECENT ACTIVITY",
+  "seeAll": "See All",
+  "quickLog": "Quick Log",
+  "noTransactionsYet": "No transactions yet.\nTap \"+\" below to log your first expense.",
+
+  "newTransaction": "New Transaction",
+  "addExpense": "Expense",
+  "addIncome": "Income",
+  "amount": "Amount",
+  "category": "Category",
+  "selectCategory": "Select Category",
+  "date": "Date",
+  "note": "Note (optional)",
+  "descriptionPayee": "Description / Payee",
+  "changeDate": "Change",
+  "saveExpense": "Save Expense",
+  "saveIncome": "Save Income",
+  "saveTransaction": "Save Transaction",
+  "enterValidAmount": "Please enter a valid amount",
+
+  "activityHistory": "Activity & History",
+  "searchPlaceholder": "Search by title, note, or payee...",
+  "filterAll": "All",
+  "filterExpenses": "Expenses",
+  "filterIncome": "Income",
+  "allCategories": "All Categories",
+  "noTransactionsFound": "No transactions found",
+  "noTransactionsToExport": "No transactions to export",
+  "deleteTransaction": "Delete Transaction?",
+  "confirmDeleteTransaction": "Are you sure you want to delete \"{title}\"? This cannot be undone.",
+  "@confirmDeleteTransaction": {
+    "placeholders": {
+      "title": { "type": "String" }
+    }
+  },
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "transactionDeleted": "Transaction deleted",
+  "exportCsv": "Export CSV",
+  "csvExportSuccess": "CSV exported successfully",
+
+  "budgetOverview": "Monthly Budget",
+  "createCategoryBudget": "Create Category Budget",
+  "monthlyLimit": "Monthly Limit",
+  "limitPlaceholder": "e.g. 500.00",
+  "spentOf": "spent of",
+  "remaining": "Remaining",
+  "overBudget": "Over budget",
+  "setMonthlyLimit": "Set Monthly Limit",
+  "setBudget": "Set Budget",
+  "categoryBudgets": "Category Budgets",
+  "noCategoryBudgets": "No category budgets created yet.",
+
+  "spendingBreakdown": "Spending Breakdown",
+  "weeklySpendingVelocity": "Weekly Spending Velocity",
+  "noSpendingData": "No spending recorded this period",
+  "highestCategory": "Highest Category",
+  "financialAnalytics": "Financial Analytics",
+
+  "savingsGoals": "Savings Targets",
+  "newGoal": "New Goal",
+  "targetAmount": "Target Amount",
+  "currentSavings": "Saved So Far",
+  "recurringSubscriptions": "Recurring Subscriptions",
+  "newSubscription": "Add Subscription",
+  "monthlyBurnRate": "Monthly Burn Rate",
+  "annualBurnRate": "Annual Burn Rate",
+  "activeSubscriptions": "Active Subscriptions",
+  "renewsOn": "Renews on day {day}",
+  "@renewsOn": {
+    "placeholders": {
+      "day": { "type": "int" }
+    }
+  },
+
+  "settings": "Settings & Privacy",
+  "preferences": "PREFERENCES",
+  "language": "Language",
+  "languageSubtitle": "Choose your preferred language",
+  "systemDefault": "System Default",
+  "currency": "Primary Currency",
+  "currencySubtitle": "Display currency for all figures",
+  "appearance": "Theme & Appearance",
+  "theme": "Theme",
+  "themeLight": "Clean Light",
+  "themeDark": "Midnight Dark",
+  "themeOled": "Pure OLED Black",
+  "dataPortability": "DATA PORTABILITY & BACKUP",
+  "backupData": "Export Complete Backup (JSON)",
+  "backupSubtitle": "Export all transactions, goals, and budgets",
+  "restoreData": "Restore from Backup (JSON)",
+  "restoreSubtitle": "Restore data from a saved Monetra JSON file",
+  "seedSampleData": "Seed Sample FinTech Data",
+  "seedSampleSubtitle": "Populates sample income, bills, and goals",
+  "sampleDataLoaded": "Sample data loaded successfully!",
+  "security": "SECURITY & PRIVACY",
+  "biometricLock": "Require Biometric Lock",
+  "biometricSubtitle": "Face ID, Fingerprint, or Device Passcode",
+  "biometricPrompt": "Please authenticate to access Monetra",
+  "dataSovereignty": "100% Offline & Private",
+  "dataSovereigntySubtitle": "Your financial data is stored exclusively on your device.",
+  "version": "Version",
+
+  "catHousing": "Housing & Rent",
+  "catFood": "Food & Groceries",
+  "catTransport": "Transportation",
+  "catShopping": "Shopping",
+  "catEntertainment": "Entertainment",
+  "catHealth": "Health & Medical",
+  "catEducation": "Education",
+  "catTravel": "Travel & Vacations",
+  "catBills": "Bills & Utilities",
+  "catSubscriptions": "Subscriptions",
+  "catPersonalCare": "Personal Care",
+  "catSavingsTransfers": "Savings & Transfers",
+  "catOtherExpense": "Other Expenses",
+  "catSalary": "Salary & Wages",
+  "catFreelance": "Freelance & Business",
+  "catInvestments": "Investments & Dividends",
+  "catGifts": "Gifts & Grants",
+  "catOtherIncome": "Other Income",
+  "catOther": "Other",
+
+  "welcomeTitle": "See your money differently",
+  "welcomeSubtitle": "Visual, intelligent, and 100% private personal finance.",
+  "getStarted": "Get Started",
+  "slide1Title": "Safe to Spend Today",
+  "slide1Desc": "Never wonder if you can afford lunch. Get a live daily discretionary budget that protects your bills.",
+  "slide2Title": "Zero Clutter, Pure Clarity",
+  "slide2Desc": "Visual rings, category donuts, and instant spending velocity without spreadsheet chaos.",
+  "slide3Title": "100% Offline & Sovereignty",
+  "slide3Desc": "No bank logins required. Your financial records live encrypted exclusively on your phone.",
+  "selectCurrencyTitle": "Select Your Main Currency",
+  "startExploring": "Launch Monetra",
+
+  "period7Days": "7 Days",
+  "period30Days": "30 Days",
+  "period3Months": "3 Months",
+  "periodAllTime": "All Time",
+  "period7DaysTitle": "7-Day Spending Velocity",
+  "period30DaysTitle": "30-Day Spending Trend",
+  "period3MonthsTitle": "3-Month Spending Comparison",
+  "periodAllTimeTitle": "Monthly Spending Evolution",
+  "incomeVsExpenses": "Income vs Expenses",
+  "inflow": "Inflow",
+  "outflow": "Outflow",
+  "netBalance": "Net Balance",
+  "spendingDistribution": "Spending Distribution",
+  "categoryBreakdown": "Category Breakdown",
+  "noTransactionsTimeframe": "No transactions in this timeframe.",
+  "pctOfTotalSpending": "{percent}% of total spending",
+  "@pctOfTotalSpending": {
+    "placeholders": {
+      "percent": { "type": "String" }
+    }
+  },
+  "activeTargetsCount": "Active Targets ({count})",
+  "@activeTargetsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "noSavingsGoals": "No savings goals yet. Create one to stay motivated!",
+  "targetLabel": "Target: {amount}",
+  "@targetLabel": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "savedLabel": "Saved: {amount}",
+  "@savedLabel": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "addFunds": "Add Funds",
+  "contributeTo": "Contribute to \"{name}\"",
+  "@contributeTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "contributionAmount": "Contribution Amount",
+  "depositedSuccess": "Deposited {amount} to {name}!",
+  "@depositedSuccess": {
+    "placeholders": {
+      "amount": { "type": "String" },
+      "name": { "type": "String" }
+    }
+  },
+  "createSavingsGoal": "Create Savings Goal",
+  "goalNameLabel": "Goal Name (e.g. New Laptop)",
+  "targetAmountLabel": "Target Amount",
+  "targetDateLabel": "Target Date",
+  "createGoal": "Create Goal",
+  "monthlyCommitment": "Monthly Commitment",
+  "annualProjection": "Annual Projection",
+  "subscriptionsAndBillsCount": "Subscriptions & Bills ({count})",
+  "@subscriptionsAndBillsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "addBill": "Add Bill",
+  "noSubscriptionsYet": "No recurring subscriptions added yet.",
+
+  "chooseAppearance": "Choose Appearance",
+  "restoreBackupTitle": "Restore Backup?",
+  "restoreBackupConfirm": "Restoring this backup will replace current transactions, budgets, and savings goals with the saved data. Proceed?",
+  "restoreDataBtn": "Restore Data",
+  "backupExportError": "Backup export error: {error}",
+  "@backupExportError": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "backupInvalidFormat": "Invalid Monetra backup format.",
+  "restoreBackupError": "Error restoring backup: {error}",
+  "@restoreBackupError": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "biometricsNotAvailable": "Biometrics not available on this device",
+  "biometricsFailed": "Biometric authentication failed: {error}",
+  "@biometricsFailed": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "commitmentsUpToDate": "All financial commitments are up to date!",
+  "addSubscriptionTitle": "Add Recurring Bill / Subscription",
+  "serviceNameLabel": "Service Name (e.g. Netflix, Gym)",
+  "amountPerCycleLabel": "Amount per Cycle",
+  "billingFrequencyLabel": "Billing Frequency",
+  "billingMonthly": "Monthly",
+  "billingWeekly": "Weekly",
+  "billingQuarterly": "Quarterly",
+  "billingYearly": "Yearly",
+  "saveSubscription": "Save Subscription",
+  "skip": "Skip",
+  "next": "Next",
+  "txSampleSalary": "Monthly Salary Deposit",
+  "txSampleRent": "Apartment Rent",
+  "txSampleGroceries": "Food & Groceries Market",
+  "txSampleTransport": "Metro Pass & Fuel",
+  "txSampleEntertainment": "Weekend Cinema & Dinner"
+}

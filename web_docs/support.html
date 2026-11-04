@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support & Help Center - Monetra: Budget & Expenses</title>
+  <meta name="description" content="Official Support & Help Center for Monetra: Budget & Expenses (com.monetra.budget.expense.tracker). FAQs, contact details, user guides.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #ecfdf5;
+      --accent: #10b981;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --radius: 16px;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 36px 16px;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      background-color: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+      padding: 48px 42px;
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 16px 8px; }
+      .container { padding: 28px 20px; border-radius: 12px; }
+    }
+
+    .header {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .subtitle { color: var(--text-muted); font-size: 15px; }
+
+    .support-card {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      color: white;
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 36px;
+      box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.3);
+    }
+
+    .support-card h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .support-card p {
+      color: #e6fffa;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #ffffff;
+      color: var(--primary-dark);
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 15px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text-main);
+    }
+
+    details {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      margin-bottom: 14px;
+      padding: 16px 20px;
+      transition: all 0.2s ease;
+    }
+
+    details[open] {
+      background-color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+    }
+
+    summary {
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      color: var(--text-main);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    .faq-content {
+      margin-top: 14px;
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      border-top: 1px solid #edf2f7;
+      padding-top: 12px;
+    }
+
+    .faq-content ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header class="header">
+      <span class="badge">💬 Official Help Center</span>
+      <h1>Help & Support</h1>
+      <div class="subtitle">
+        <strong>Monetra: Budget & Expenses</strong> &bull; Package: <code>com.monetra.budget.expense.tracker</code>
+      </div>
+    </header>
+
+    <div class="support-card">
+      <h2>Need Help or Have a Question?</h2>
+      <p>Our engineering and product support team is here to assist you. Send us an email and we typically respond within 24–48 hours.</p>
+      <a href="mailto:siscom.info@gmail.com?subject=Monetra%20Support%20Request" class="btn">
+        ✉️ Contact Support (siscom.info@gmail.com)
+      </a>
+    </div>
+
+    <h2 class="section-title">Frequently Asked Questions (FAQ)</h2>
+
+    <details open>
+      <summary>How does the "Safe to Spend Today" calculation work?</summary>
+      <div class="faq-content">
+        <p>The <strong>Safe to Spend Today</strong> metric is Monetra's proprietary deterministic financial gauge. Instead of showing retroactive past totals, it calculates how much discretionary money you can safely spend today without risking your upcoming obligations:</p>
+        <p style="margin-top: 6px;"><code>Safe to Spend = (Total Budget - Month-to-date Spending - Committed Recurring Bills) / Days Remaining in Month</code></p>
+        <p style="margin-top: 6px;">This ensures that rent, bills, and savings goals are mathematically protected before you spend.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Is Monetra connected to my bank account or online credentials?</summary>
+      <div class="faq-content">
+        <p><strong>No.</strong> Monetra is built on a strict <strong>zero bank sync, 100% offline-first architecture</strong>. You never share your online banking passwords, account numbers, or card details. All data is logged and processed privately on your phone's local SQLite database.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Which languages are supported and how do I switch?</summary>
+      <div class="faq-content">
+        <p>Monetra natively supports 6 languages with full RTL layout support:</p>
+        <ul>
+          <li>🇺🇸 English (Default)</li>
+          <li>🇫🇷 Français (French)</li>
+          <li>🇸🇦 العربية (Arabic - RTL)</li>
+          <li>🇩🇪 Deutsch (German)</li>
+          <li>🇪🇸 Español (Spanish)</li>
+          <li>🇧🇷 Português (Portuguese)</li>
+        </ul>
+        <p style="margin-top: 8px;">To change the language: Navigate to <strong>Settings &gt; Language</strong> and tap your preferred language flag.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I backup or export my financial data?</summary>
+      <div class="faq-content">
+        <p>You can export your complete history anytime:</p>
+        <ul>
+          <li>Go to <strong>Settings &gt; Data Management</strong>.</li>
+          <li>Select <strong>Export to CSV</strong> (for opening in Excel / Google Sheets) or <strong>Export to JSON</strong> (for complete backups).</li>
+          <li>Save the exported file to your device or personal cloud storage.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>How does Biometric Lock (Fingerprint / Face ID) work?</summary>
+      <div class="faq-content">
+        <p>When you enable <strong>App Lock</strong> in Settings, Monetra invokes the Android <code>BiometricPrompt</code> security dialog. Authentication is verified in your phone's hardware Trusted Execution Environment (TEE). Monetra never has access to your raw biometrics.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How can I reset or permanently delete all my data?</summary>
+      <div class="faq-content">
+        <p>Because Monetra does not store anything on remote cloud servers, you have complete instant control:</p>
+        <ul>
+          <li>Inside the app: Go to <strong>Settings &gt; Reset Data</strong> and confirm.</li>
+          <li>Alternatively, clearing the app storage in Android Settings or uninstalling the app permanently erases the local database.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I suggest a new feature or report an issue?</summary>
+      <div class="faq-content">
+        <p>We welcome your feedback! Send your suggestions or bug reports to <a href="mailto:siscom.info@gmail.com?subject=Monetra%20Feature%20Suggestion" style="color: var(--primary); font-weight: 600;">siscom.info@gmail.com</a>. Please include your device model and Android version if reporting a technical glitch.</p>
+      </div>
+    </details>
+
+    <div class="nav-links">
+      <a href="index.html">← Back to Monetra Home</a>
+      <a href="privacy.html">Privacy Policy →</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 ADALINA / SISCOM. All rights reserved.
+  </footer>
+
+</body>
+</html>
