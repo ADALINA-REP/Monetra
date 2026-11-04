@@ -37,7 +37,7 @@ jobs:
           flutter pub get
           flutter build ios --config-only --release --no-codesign
 
-      - name: Write App Store Connect API Key File
+      - name: Write App Store Connect API Key File & Register Bundle ID
         run: |
           mkdir -p "$HOME/.appstoreconnect/private_keys"
           mkdir -p "$HOME/private_keys"
@@ -49,6 +49,42 @@ jobs:
           printf "%s\n" "xMlFxhoE" >> "$TARGET_KEY"
           printf "%s\n" "-----END PRIVATE KEY-----" >> "$TARGET_KEY"
           cp "$TARGET_KEY" "$HOME/private_keys/AuthKey_9HC3ZFHYQ7.p8"
+
+          python3 -m pip install pyjwt cryptography requests --quiet || true
+          python3 - << 'EOF'
+          import time, jwt, requests
+          key_path = "$HOME/.appstoreconnect/private_keys/AuthKey_9HC3ZFHYQ7.p8"
+          import os
+          key_path = os.path.expanduser("~/.appstoreconnect/private_keys/AuthKey_9HC3ZFHYQ7.p8")
+          with open(key_path, "r") as f:
+              private_key = f.read()
+          token = jwt.encode(
+              {"iss": "b4575c22-8a31-4f97-bed4-889e3c21a7b5", "iat": int(time.time()), "exp": int(time.time()) + 1200, "aud": "appstoreconnect-v1"},
+              private_key,
+              algorithm="ES256",
+              headers={"kid": "9HC3ZFHYQ7", "typ": "JWT"}
+          )
+          headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+          bundle_id = "com.monetra.budget.expense.tracker"
+          r = requests.get(f"https://api.appstoreconnect.apple.com/v1/bundleIds?filter[identifier]={bundle_id}", headers=headers)
+          data = r.json().get("data", [])
+          if not data:
+              print(f"Registering Bundle ID {bundle_id} on Apple Developer Portal...")
+              payload = {
+                  "data": {
+                      "type": "bundleIds",
+                      "attributes": {
+                          "identifier": bundle_id,
+                          "name": "Monetra Budget Expense Tracker",
+                          "platform": "UNIVERSAL"
+                      }
+                  }
+              }
+              res = requests.post("https://api.appstoreconnect.apple.com/v1/bundleIds", headers=headers, json=payload)
+              print("Bundle ID registration status:", res.status_code, res.text)
+          else:
+              print(f"Bundle ID {bundle_id} already registered (id={data[0]['id']}).")
+          EOF
 
       - name: Create ExportOptions.plist
         run: |
@@ -108,3 +144,10 @@ jobs:
           echo "Uploading $IPA_FILE to App Store Connect..."
           xcrun altool --upload-app -f "$IPA_FILE" -t ios --apiKey "9HC3ZFHYQ7" --apiIssuer "b4575c22-8a31-4f97-bed4-889e3c21a7b5" --verbose
 
+      - name: Archive Signed IPA Artifact on GitHub
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Monetra-iOS-IPA
+          path: build/ios/ipa/*.ipa
+          if-no-files-found: warn
